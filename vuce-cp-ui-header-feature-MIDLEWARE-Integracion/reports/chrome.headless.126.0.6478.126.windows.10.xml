@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<testExecutions version='1'>
+    <file path='src/app/app.component.spec.ts'>
+        <testCase name='AppComponent should set perfilUsuario from localStorage on ngOnInit' duration='52'/>
+        <testCase name='AppComponent should switch roles correctly in cambiarPerfil' duration='4'/>
+        <testCase name='AppComponent should call getDatosService on ngOnInit' duration='3'/>
+        <testCase name='AppComponent should toggle sidebar on onOpenSidebar' duration='2'/>
+        <testCase name='AppComponent should format text correctly in formatText' duration='3'/>
+        <testCase name='AppComponent should call setDatos() successfully' duration='2'/>
+        <testCase name='AppComponent should create' duration='2'/>
+        <testCase name='AppComponent should open administrated account' duration='2'/>
+        <testCase name='AppComponent should call setRol() successfully' duration='2'/>
+        <testCase name='AppComponent should call getRolService on ngOnInit' duration='2'/>
+        <testCase name='AppComponent should switch roles account' duration='1'/>
+    </file>
+</testExecutions>

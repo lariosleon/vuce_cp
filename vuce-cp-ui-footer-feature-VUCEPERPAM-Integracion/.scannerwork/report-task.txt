@@ -1,0 +1,6 @@
+projectKey=vuce-cp-ui-footer
+serverUrl=http://23.21.172.139:9000
+serverVersion=10.3.0.82913
+dashboardUrl=http://23.21.172.139:9000/dashboard?id=vuce-cp-ui-footer
+ceTaskId=AZAtV5jIHh0WnQrz3PCf
+ceTaskUrl=http://23.21.172.139:9000/api/ce/task?id=AZAtV5jIHh0WnQrz3PCf

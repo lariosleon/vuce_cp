@@ -1,0 +1,12 @@
+<?xml version='1.0'?>
+<testExecutions version='1'>
+    <file path='src/app/app.component.spec.ts'>
+        <testCase name='AppComponent should have singleSpaPropsSubject defined' duration='23'/>
+        <testCase name='AppComponent should create the app' duration='14'/>
+        <testCase name='AppComponent should have bootstrap function defined' duration='1'/>
+        <testCase name='AppComponent should have unmount function defined' duration='1'/>
+        <testCase name='AppComponent should have mount function defined' duration='0'/>
+        <testCase name='AppComponent should have routes defined' duration='0'/>
+        <testCase name='AppComponent should have appConfig defined' duration='0'/>
+    </file>
+</testExecutions>

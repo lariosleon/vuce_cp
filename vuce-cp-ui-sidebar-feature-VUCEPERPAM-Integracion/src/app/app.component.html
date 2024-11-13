@@ -1,0 +1,76 @@
+<div class="sidebar" [ngClass]="{'sidebar__close': closeSidebar}">
+	<span class="sidebar__button" (click)="onCloseSidebar()">
+		<span class="material-symbols-outlined d-none d-md-block">
+			{{ closeSidebar ? 'chevron_right' : 'chevron_left' }}
+		</span>
+		<span class="material-symbols-outlined d-block d-md-none"> chevron_left </span>
+	</span>
+	<nav>
+		<ul class="nav flex-column">
+			@for (menu of listMenu; track menu) {
+				<li class="nav-item">
+					@if (menu.submenu) {
+						<a 
+							class="nav-link d-flex gap-1 align-items-center" 
+							[ngClass]="{ 'active': menu.active, 'disabled opacity-25' : !menu.permiso}"
+							(click)="onOpenSubMenu(menu)">
+							<span class="nav-icon">
+								<ng-container *ngTemplateOutlet="iconos; context: { $implicit: menu.icono }"></ng-container>
+							</span>
+							<span class="nav-label">{{menu.nombre}}</span>
+							<span class="material-symbols-outlined ms-auto nav-label">
+								{{ menu.active ? 'expand_less' : 'expand_more' }}
+							</span>
+						</a>
+						@if (menu.active) {
+							<div class="submenu" [ngClass]="{'d-md-none': closeSidebar}">
+								<ul class="list-group sidebar__submenu">
+									@for (submenu of menu.submenuListado; track submenu) {
+									<li class="list-group-item border-0">
+										<a [routerLink]="[submenu.ruta]" routerLinkActive="active">{{ submenu.nombre }}</a>
+									</li>
+									}
+								</ul>
+							</div>
+						}
+					} @else {
+						<a 
+						[ngClass]="{ 'active': menu.active, 'disabled opacity-25' : !menu.permiso }"
+						(click)="onOpenMenu(menu)"
+						class="nav-link d-flex gap-1 align-items-center" 
+						[routerLink]="[menu.ruta]">
+							<span class="nav-icon">
+								<ng-container *ngTemplateOutlet="iconos; context: { $implicit: menu.icono }"></ng-container>
+							</span>
+							<span class="nav-label">{{ menu.nombre }}</span>
+						</a>
+					}
+				</li>
+			}
+		</ul>
+		<a href="#" class="d-flex align-items-center justify-content-center gap-1 text-decoration-none py-2">
+			<app-wsp></app-wsp>
+			<span class="font-color-secondary nav-label">(01) 207-239</span>
+		</a>
+		<div class="text-center">
+			<a class="font-color-blue nav-label" href="#">Ir al centro de ayuda</a>
+		</div>
+	</nav>
+</div>
+<div class="sidebar-backdrop" (click)="onCloseSidebarMobile()"></div>
+
+<ng-template #iconos let-menu>
+	<ng-container [ngSwitch]="menu">
+		<app-inicio *ngSwitchCase="iconMenu.INICIO"></app-inicio>
+		<app-buque *ngSwitchCase="iconMenu.BUQUE"></app-buque>
+		<app-buque2 *ngSwitchCase="iconMenu.BUQUE2"></app-buque2>
+		<app-key *ngSwitchCase="iconMenu.KEY"></app-key>
+		<app-health *ngSwitchCase="iconMenu.HEALTH"></app-health>
+		<app-helmet *ngSwitchCase="iconMenu.HELMET"></app-helmet>
+		<app-anchor *ngSwitchCase="iconMenu.ANCHOR"></app-anchor>
+		<app-question *ngSwitchCase="iconMenu.QUESTION"></app-question>
+		<app-report *ngSwitchCase="iconMenu.REPORT"></app-report>
+		<app-cash *ngSwitchCase="iconMenu.CASH"></app-cash>
+		<app-laptop *ngSwitchCase="iconMenu.LAPTOP"></app-laptop>
+	</ng-container>
+</ng-template>
